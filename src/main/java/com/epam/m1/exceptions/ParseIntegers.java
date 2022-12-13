@@ -21,11 +21,24 @@ public class ParseIntegers {
         String justWords = "";
         while (words.hasNext()) {
             String next = words.next();
-            int number = Integer.parseInt(next);
-            // todo: complete it
+            if (isNumeric(next)) {
+                int number = Integer.parseInt(next);
+                sum = sum + number;
+            } else justWords = justWords + " " + next;
+
+
         }
         System.out.println("Sum is " + sum);
         System.out.println("Just words:" + justWords);
+    }
+
+    public static boolean isNumeric(String str) {
+        try {
+            Integer.parseInt(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 }
 
